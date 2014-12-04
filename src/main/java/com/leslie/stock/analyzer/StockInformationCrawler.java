@@ -14,7 +14,7 @@ import org.jsoup.nodes.Element;
 
 import com.leslie.stock.bean.StockBean;
 
-public class FindDistributionStocks {
+public class StockInformationCrawler {
 
 	private static final String STOCK_DETAIL_URL = "http://stockpage.10jqka.com.cn/{stock_code}/";
 	private static final String STOCK_HEADER_URL = "http://stockpage.10jqka.com.cn/spService/{stock_code}/Header/realHeader";
