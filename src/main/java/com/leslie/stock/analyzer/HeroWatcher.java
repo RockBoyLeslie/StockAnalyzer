@@ -24,6 +24,7 @@ public class HeroWatcher {
 
     private static final String URL = "http://xueqiu.com/";
     private static final int CONNECTION_TIME_OUT = 10 * 1000;
+
     private ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
     private Semaphore printSignal = new Semaphore(1);
     private List<JSONObject> currentStatus = Collections.emptyList();
@@ -94,19 +95,20 @@ public class HeroWatcher {
     private void noticePopup(List<JSONObject> newStatuses) {
         try {
             printSignal.acquireUninterruptibly();
-            if (!CollectionUtils.isEqualCollection(currentStatus, newStatuses)) {
-                for (int h = newStatuses.size() - 1; h >= 0; h--) {
-                    JSONObject status = newStatuses.get(h);
-
-                    if (!currentStatus.contains(status)) {
-                        String message = String.format("%s - %s", status.get("created_at"), status.getString("description"));
-                        System.out.println(message);
-                        new MessageWindow().popup(message);
-                    }
-                }
-
-                currentStatus = newStatuses;
+            if (CollectionUtils.isEqualCollection(currentStatus, newStatuses)) {
+                return;
             }
+
+            for (int h = newStatuses.size() - 1; h >= 0; h--) {
+                JSONObject status = newStatuses.get(h);
+
+                if (!currentStatus.contains(status)) {
+                    String message = String.format("%s - %s", status.get("created_at"), status.getString("description"));
+                    System.out.println(message);
+                    new MessageWindow().popup(message);
+                }
+            }
+            currentStatus = newStatuses;
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
@@ -115,7 +117,7 @@ public class HeroWatcher {
     }
 
     public static void main(String[] args) {
-        //new HeroWatcher().watch("6785033954");
+        // new HeroWatcher().watch("6785033954");
         new HeroWatcher().watch("6254653026");
     }
 
