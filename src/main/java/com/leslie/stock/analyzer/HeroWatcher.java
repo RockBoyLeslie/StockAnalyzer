@@ -79,7 +79,6 @@ public class HeroWatcher {
             JSONArray statuses = statusJson.getJSONArray("statuses");
             List<JSONObject> newStatuses = new ArrayList<JSONObject>(statuses.size());
             synchronized (lastDate) {
-                System.out.println(lastDate);
                 Date tempDate = lastDate;
                 for (int j = 0; j < statuses.size(); j++) {
                     JSONObject newStatus = new JSONObject();
