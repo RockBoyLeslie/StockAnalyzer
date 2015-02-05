@@ -113,8 +113,8 @@ public class TranslucentFrame {
         frame.setVisible(true);
         frame.setAlwaysOnTop(true);// 窗体置顶
         // 添加关闭窗口的监听
-        frame.addWindowListener(new WindowAdapter() {
-            public void windowClosing(WindowEvent e) {
+        editorPane1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
                 hide();
             }
         });
@@ -159,7 +159,8 @@ public class TranslucentFrame {
         print();
         show();
         try {
-            Thread.sleep(stayTime * 1000);
+            //永不消失，除非手动点击弹出框
+            Thread.sleep(Integer.MAX_VALUE);
         } catch (Exception e) {
         }
         hide();
