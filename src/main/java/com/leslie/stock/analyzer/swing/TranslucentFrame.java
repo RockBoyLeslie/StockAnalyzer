@@ -165,4 +165,8 @@ public class TranslucentFrame {
         }
         hide();
     }
+    
+    public void setMessage(String message) {
+        this.message = message;
+    }
 }

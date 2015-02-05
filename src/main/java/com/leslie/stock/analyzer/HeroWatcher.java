@@ -31,6 +31,7 @@ public class HeroWatcher {
     private ScheduledExecutorService executor = Executors.newScheduledThreadPool(1);
     private Semaphore printSignal = new Semaphore(1);
     private List<JSONObject> currentStatus = Collections.emptyList();
+    private TranslucentFrame popupWindow = new TranslucentFrame(2, "notice", "");
 
     public void watch(final String id) {
         Runnable runnable = new Runnable() {
@@ -108,7 +109,8 @@ public class HeroWatcher {
                 if (!currentStatus.contains(status)) {
                     String message = String.format("%s - %s", status.get("created_at"), status.getString("description"));
                     System.out.println(message);
-                    new TranslucentFrame(2, "notice", message).popup();;
+                    popupWindow.setMessage(message);
+                    popupWindow.popup();
                     //new MessageWindow().popup(message);
                 }
             }
