@@ -1,5 +1,7 @@
 package com.leslie.stock.analyzer;
 
+import com.leslie.stock.bean.StockBean;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -9,8 +11,6 @@ import java.util.concurrent.Future;
 import java.util.concurrent.RecursiveTask;
 
 import org.apache.commons.lang.StringUtils;
-
-import com.leslie.stock.bean.StockBean;
 
 public class StockDistributionCalculator extends RecursiveTask<List<StockBean>> {
 

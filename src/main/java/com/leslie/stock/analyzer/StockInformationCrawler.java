@@ -1,5 +1,7 @@
 package com.leslie.stock.analyzer;
 
+import com.leslie.stock.bean.StockBean;
+
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -12,8 +14,6 @@ import org.apache.log4j.Logger;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
-
-import com.leslie.stock.bean.StockBean;
 
 public class StockInformationCrawler {
 

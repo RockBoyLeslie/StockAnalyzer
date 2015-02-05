@@ -1,6 +1,7 @@
 package com.leslie.stock.analyzer;
 
-import com.leslie.stock.analyzer.swing.MessageWindow;
+import com.leslie.stock.analyzer.swing.TranslucentFrame;
+
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -10,8 +11,10 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
+
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
+
 import org.apache.commons.collections.CollectionUtils;
 import org.jsoup.Connection;
 import org.jsoup.Connection.Request;
@@ -105,7 +108,8 @@ public class HeroWatcher {
                 if (!currentStatus.contains(status)) {
                     String message = String.format("%s - %s", status.get("created_at"), status.getString("description"));
                     System.out.println(message);
-                    new MessageWindow().popup(message);
+                    new TranslucentFrame(2, "notice", message).popup();;
+                    //new MessageWindow().popup(message);
                 }
             }
             currentStatus = newStatuses;
@@ -117,8 +121,8 @@ public class HeroWatcher {
     }
 
     public static void main(String[] args) {
-        // new HeroWatcher().watch("6785033954");
-        new HeroWatcher().watch("6254653026");
+        new HeroWatcher().watch("6785033954");
+        //new HeroWatcher().watch("6254653026");
     }
 
 }
