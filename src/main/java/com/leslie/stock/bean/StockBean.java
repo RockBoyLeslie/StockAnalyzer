@@ -1,101 +1,111 @@
 package com.leslie.stock.bean;
 
 public class StockBean implements Comparable<StockBean> {
-	
-	// 股票代码
-	private String code;
-	
-	// 当日价格
-	private double price;
-	
-	// 总市值
-	private double zsz;
-	
-	// 流通市值
-	private double ltsz;
-	
-	// 每股净资产
-	private double jzc;
-	
-	// 每股公积金
-	private double gjj;
-	
-	// 每股未分配利润
-	private double wfplr;
 
-	@Override
-	public String toString() {
-		return "StockBean [code=" + code + ", price=" + price + ", zsz=" + zsz
-				+ ", ltsz=" + ltsz + ", jzc=" + jzc + ", gjj=" + gjj
-				+ ", wfplr=" + wfplr + "]";
-	}
+    // 股票代码
+    private String code;
 
-	public double getPrice() {
-		return price;
-	}
+    // 当日价格
+    private double price;
 
-	public void setPrice(double price) {
-		this.price = price;
-	}
+    // 总市值
+    private double zsz;
 
-	public StockBean(String code) {
-		super();
-		this.code = code;
-	}
+    // 流通市值
+    private double ltsz;
 
-	public String getCode() {
-		return code;
-	}
+    // 每股净资产
+    private double jzc;
 
-	public void setCode(String code) {
-		this.code = code;
-	}
+    // 每股公积金
+    private double gjj;
 
-	public double getZsz() {
-		return zsz;
-	}
+    // 每股未分配利润
+    private double wfplr;
 
-	public void setZsz(double zsz) {
-		this.zsz = zsz;
-	}
+    // 净利润增长率
+    private double zzl;
 
-	public double getLtsz() {
-		return ltsz;
-	}
+    public double getPrice() {
+        return price;
+    }
 
-	public void setLtsz(double ltsz) {
-		this.ltsz = ltsz;
-	}
+    public void setPrice(double price) {
+        this.price = price;
+    }
 
-	public double getJzc() {
-		return jzc;
-	}
+    @Override
+    public String toString() {
+        return "StockBean [code=" + code + ", price=" + price + ", zsz=" + zsz + ", ltsz=" + ltsz + ", jzc=" + jzc + ", gjj=" + gjj + ", wfplr=" + wfplr
+                + ", zzl=" + zzl + "]";
+    }
 
-	public void setJzc(double jzc) {
-		this.jzc = jzc;
-	}
+    public StockBean(String code) {
+        super();
+        this.code = code;
+    }
 
-	public double getGjj() {
-		return gjj;
-	}
+    public String getCode() {
+        return code;
+    }
 
-	public void setGjj(double gjj) {
-		this.gjj = gjj;
-	}
+    public void setCode(String code) {
+        this.code = code;
+    }
 
-	public double getWfplr() {
-		return wfplr;
-	}
+    public double getZsz() {
+        return zsz;
+    }
 
-	public void setWfplr(double wfplr) {
-		this.wfplr = wfplr;
-	}
+    public void setZsz(double zsz) {
+        this.zsz = zsz;
+    }
 
-	public int compareTo(StockBean o) {
-		return Double.compare(this.getAbsValue(), o.getAbsValue());
-	}
-	
-	public double getAbsValue() {
-		return price == 0 ? 0 : (jzc + gjj + wfplr) / price;
-	}
+    public double getLtsz() {
+        return ltsz;
+    }
+
+    public void setLtsz(double ltsz) {
+        this.ltsz = ltsz;
+    }
+
+    public double getJzc() {
+        return jzc;
+    }
+
+    public void setJzc(double jzc) {
+        this.jzc = jzc;
+    }
+
+    public double getGjj() {
+        return gjj;
+    }
+
+    public void setGjj(double gjj) {
+        this.gjj = gjj;
+    }
+
+    public double getWfplr() {
+        return wfplr;
+    }
+
+    public void setWfplr(double wfplr) {
+        this.wfplr = wfplr;
+    }
+
+    public int compareTo(StockBean o) {
+        return Double.compare(this.getAbsValue(), o.getAbsValue());
+    }
+
+    public double getAbsValue() {
+        return price == 0 ? 0 : (jzc + gjj + wfplr) / price;
+    }
+
+    public void setZzl(double zzl) {
+        this.zzl = zzl;
+    }
+
+    public double getZzl() {
+        return zzl;
+    }
 }
