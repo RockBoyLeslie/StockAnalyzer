@@ -114,8 +114,8 @@ public class HeroWatcher {
     }
 
     public static void main(String[] args) {
-        // new HeroWatcher().watch("6785033954");
-        new HeroWatcher().watch("6254653026");
+        new HeroWatcher().watch("6785033954");
+        //new HeroWatcher().watch("6254653026");
     }
 
 }
