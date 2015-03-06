@@ -68,7 +68,7 @@ public class StockDistributionCalculator extends RecursiveTask<List<StockBean>> 
             System.out.println(stocks.size());
 
             Collections.sort(stocks);
-            for (int i = stocks.size() - 1; i > stocks.size() - 90; i--) {
+            for (int i = stocks.size() - 1; i >= (stocks.size() > 30 ? stocks.size() - 30 : 0); i--) {
                 if (stocks.get(i).getZzl() > 0) {
                     System.out.println(stocks.get(i));
                 }
