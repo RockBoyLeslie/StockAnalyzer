@@ -98,7 +98,7 @@ public class StockInformationCrawler {
     public static void main(String[] args) {
 
         List<StockBean> stocks = new ArrayList<StockBean>();
-        for (int i = 2600; i < 2750; i++) {
+        for (int i = 2600; i < 2650; i++) {
             String code = StringUtils.leftPad(String.valueOf(i), 6, '0');
             StockBean stock = new StockBean(code);
             try {
